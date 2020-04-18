@@ -45,7 +45,7 @@ function nextSequence(currentLevel) {
       $('.btn').click(collectInput);
     }
     count++;
-  }, 500);
+  }, 1000);
 }
 
 function collectInput() {
@@ -53,10 +53,9 @@ function collectInput() {
   userClickedPattern.push(userChosenColor);
   animatePress(userChosenColor);
   playSound(userChosenColor);
-  $('.btn').off("click", collectInput);
 
   if (gamePattern.length === userClickedPattern.length) {
-    $('.btn').click(collectInput);
+    $('.btn').off("click", collectInput);
     var result = checkAnswer();
 
     if (result) {
